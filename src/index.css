@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+  background-color: #ffffffa5;
+  font-family: "Delius", cursive;
+  padding: 10px;
+ 
+}
