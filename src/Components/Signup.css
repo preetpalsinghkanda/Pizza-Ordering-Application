@@ -1,66 +1,132 @@
-.signup-container{
-    border: 1px solid white;
+.signup-container {
     height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    background: #12100e;
 }
 
-.signup-box{
-    padding: 36px 36px;
-    /* height: 50vh; */
-    /* width: 50vh; */
-    border: 1px solid white;
+.signup-box {
+    width: 36rem;
+    padding: 40px 32px;
+    background: #1f1c1a;
+    border-radius: 10px;
 }
 
-.signup-heading{
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.signup-heading {
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-.signup-heading h3{
+.signup-heading h3 {
     font-size: 2rem;
     font-weight: 800;
-   background: linear-gradient(90deg, #ff4d00, #ffae42);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: linear-gradient(90deg, #ff4d00, #ffae42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.signup-heading p{
+.signup-heading p {
     color: #988a81;
-    font-size: 1rem;
+    font-size: 0.9rem;
+}
+
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 .input-box{
-
     display: flex;
     flex-direction: column;
+    gap: 4px;
 }
 
-.input-box input{
+.input-box label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.883);
+}
+
+.input-icon-box {
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    background: #2a2623;
+    padding: 12px 12px;
+    border-radius: 10px;
+}
+
+
+.input-icon-box input {
+    flex: 1;
     border: none;
     outline: none;
+    background: transparent;
+    color: white;
+    font-size: 15px;
+}
+
+
+.input-icon-box svg{
+    
+    color: #ff4d00;
+}
+
+
+.signup-btn {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 16px;
+    padding: 14px;
+    background: #ff4d00;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.signup-btn:hover {
+    background: #ff6a2a;
 }
 
 .input-pass-container{
+    gap: 14px;
     display: flex;
-    flex-direction: row;
+}
+.input-pass-container .input-box{
+    flex: 1;
+    min-width: 0;   
+}
+.eye-icon{
+    font-size: 12px;
+    cursor: pointer;
 }
 
-.password-container{
+.gender-boxes{
     display: flex;
-    flex-direction: row;
+    gap: 10px;
+}
+
+.gender-boxes button{
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+   background-color: #2a2623;
+   outline: none;
+   border: none;
+   color: rgba(255, 255, 255, 0.883);
 }
 
 .terms_condition{
-    align-items: center;
-    gap: 10px;
     display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.signup-btn{
-    width: 100%;
+.terms_condition p{
+    font-size: 14px;
 }
