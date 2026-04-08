@@ -1,0 +1,59 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 12rem;
+  background-color: #12100e;
+  color: white;
+  border-bottom: 1px solid rgb(58, 57, 57);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #ff5f2e;
+}
+
+.nav-btns {
+  display: flex;
+  align-items: center;
+  gap:1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #d1d1d1;
+  font-size: 0.9rem;
+}
+
+.icon-btn{
+    padding: 6px 8px !important;
+}
+
+.icon-btn, .login-btn {
+    font-family: "Delius", cursive;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  /* border: 1px solid white; */
+  padding: 4px 8px ;
+  border-radius: 8px;
+}
+
+.icon-btn:hover, .login-btn:hover{
+    background-color: #f6a823;
+    color: black;
+}
+
+.login-btn span {
+  font-size: 1.1rem;
+  font-weight: 500;
+}

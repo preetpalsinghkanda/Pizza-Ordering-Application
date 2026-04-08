@@ -1,0 +1,63 @@
+.hero-container {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #12100e;
+  text-align: center;
+}
+
+
+.pizza-img img{
+    height:10rem;
+}
+
+.hero-title {
+  font-size: 5rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #ff4d00, #ffae42);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #f05023, #ffa033);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-secondary {
+    font-family: ;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 0.8rem 2.5rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #252525;
+}
