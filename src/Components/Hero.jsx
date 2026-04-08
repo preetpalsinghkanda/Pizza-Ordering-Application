@@ -16,7 +16,7 @@ const Hero = () => {
         </p>
         <div className="hero-buttons">
           <button className="btn-primary">
-           <span>Order Now</span><FontAwesomeIcon icon={faAngleRight} />
+           <span >Order Now</span><FontAwesomeIcon icon={faAngleRight} />
           </button>
           <button className="btn-secondary">Sign Up</button>
         </div>

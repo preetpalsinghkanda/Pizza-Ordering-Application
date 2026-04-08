@@ -28,12 +28,14 @@
 }
 
 .hero-buttons {
+  
   display: flex;
   gap: 1rem;
   justify-content: center;
 }
 
 .btn-primary {
+ transition: transform 0.2s ease;
   background: linear-gradient(45deg, #f05023, #ffa033);
   color: white;
   padding: 0.8rem 2rem;
@@ -48,7 +50,7 @@
 }
 
 .btn-secondary {
-    font-family: ;
+  transition: transform 0.2s ease;
   background-color: #1a1a1a;
   color: white;
   padding: 0.8rem 2.5rem;
@@ -60,4 +62,8 @@
 
 .btn-secondary:hover {
   background-color: #252525;
+}
+
+.btn-primary:hover , .btn-secondary:hover{
+  transform: scale(1.1);
 }
