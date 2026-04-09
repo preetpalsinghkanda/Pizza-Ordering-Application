@@ -1,5 +1,5 @@
 .signup-container {
-    height: 90vh;
+    margin: 20px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,6 +120,11 @@
    outline: none;
    border: none;
    color: rgba(255, 255, 255, 0.883);
+   cursor: pointer;
+}
+
+.gender-boxes button:hover{
+    outline: 0.8px solid #e93b20;
 }
 
 .terms_condition{
@@ -130,4 +135,19 @@
 
 .terms_condition p{
     font-size: 14px;
+}
+
+.selected-gender{
+    background-color: #e93b20 !important;
+}
+
+.check-box-icon{
+   color: #e93b20 !important;
+   
+}
+
+.error{
+    display: none;
+    font-size: 12px;
+    color: #ef4343;
 }

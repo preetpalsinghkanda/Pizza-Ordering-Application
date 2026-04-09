@@ -12,7 +12,13 @@ function PizzaProvider({ children }) {
 
   const [passConfirm, setPassConfirm] = useState("");
 
-  const [gender, setGender] = useContext("");
+  const [gender, setGender] = useState("");
+
+  const[isCheckBox , setIsCheckBox] = useState(false); 
+
+  const[isPassIcon , setIsPassIcon ] = useState(false);
+
+  const[isPassConfirmIcon , setIsPassConfirmIcon] = useState(false) 
 
   return (
     <pizzaApp.Provider
@@ -29,6 +35,14 @@ function PizzaProvider({ children }) {
         setPassConfirm,
         gender,
         setGender,
+        isCheckBox,
+        setIsCheckBox,
+        isPassIcon,
+        setIsPassIcon,
+        isPassConfirmIcon,
+        setIsPassConfirmIcon,
+
+
       }}
     >
       {children}
