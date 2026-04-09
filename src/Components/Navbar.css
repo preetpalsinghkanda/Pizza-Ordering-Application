@@ -30,6 +30,7 @@
 }
 
 .icon-btn{
+  display: flex;
     padding: 6px 8px !important;
 }
 

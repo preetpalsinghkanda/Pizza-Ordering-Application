@@ -8,7 +8,7 @@
   align-items: center;
   background-color: #12100e;
   text-align: center;
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
 
 
@@ -115,4 +115,46 @@
 .why-heading{
   font-size: 32px;
   color: #ff5f2e;
+}
+
+.ready-order-section{
+  /* border: 1px solid white; */
+  padding: 0px 40px;
+  
+}
+
+.ready-order-section div{
+  padding: 60px 60px;
+  /* border: 1px solid white; */
+  border-radius: 20px;
+  background-color: #1a1a1a;
+}
+
+.ready-order-section div h3{
+  color: #ff5f2e;
+  font-size: 30px;
+}
+
+.ready-order-section div p{
+  margin: 10px 0px ;
+  font-size: 16px;
+  color: #a0a0a0;
+}
+
+.ready-order-section button{
+  margin-top: 10px;
+  padding: 14px 14px;
+  font-weight: 800;
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: #f24a0d;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.cook-img{
+  height: 25rem;
+  width:auto
 }

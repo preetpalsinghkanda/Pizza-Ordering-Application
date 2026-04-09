@@ -3,6 +3,7 @@ import "./Hero.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import pizzaImg from "../../public/pizza-img.png";
+import cook from '../../public/cook.png'
 
 const Hero = () => {
   return (
@@ -100,10 +101,12 @@ const Hero = () => {
       </section>
 
 
-    <section>
-      <h3>Ready to order?</h3>
+    <section className="ready-order-section">
+      <img src={cook} alt=""  className="cook-img" />
+      <div>
+        <h3>Ready to order?</h3>
       <p>Create your account and get your first delivery free!</p>
-      <button>Get Started, It's Free</button>
+      <button>Get Started, It's Free</button></div> 
 
     </section>
 
