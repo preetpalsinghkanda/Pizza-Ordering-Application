@@ -18,7 +18,9 @@ function PizzaProvider({ children }) {
 
   const[isPassIcon , setIsPassIcon ] = useState(false);
 
-  const[isPassConfirmIcon , setIsPassConfirmIcon] = useState(false) 
+  const[isPassConfirmIcon , setIsPassConfirmIcon] = useState(false);
+
+  const[activeSlider , setActiveSlider] = useState("size")
 
   return (
     <pizzaApp.Provider
@@ -41,6 +43,9 @@ function PizzaProvider({ children }) {
         setIsPassIcon,
         isPassConfirmIcon,
         setIsPassConfirmIcon,
+        activeSlider,
+        setActiveSlider,
+
 
 
       }}
