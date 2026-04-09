@@ -1,7 +1,16 @@
 .menu-section{
-    border: 1px solid white;
+    /* border: 1px solid white; */
     height: 100vh;
-    padding: 40px 180px
+    padding: 40px 180px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.menu-heading{
+    display: flex;
+    flex-direction: column;
+    /* align-self: flex-start; */
 }
 
 .menu-heading h3{
@@ -62,35 +71,48 @@
 
 
 .menu-main{
-    border: 1px solid white;
+    /* border: 1px solid white; */
     /* height: 80vh; */
     display: flex;
     flex-direction: row;
-    
-    gap: 20px;
+   
+    gap: 26px;
 }
 
 .order-preview{
-    display: none !important;
+    /* display: none !important; */
     min-width: 25vw;
-    border: 1px solid white;
+    /* border: 1px solid rgba(255, 255, 255, 0.365); */
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.639);
     border-radius: 12px;
     padding: 20px 30px;
     display: flex;
    flex-direction: column;
+    background-color: #1f1c1a;
 }
 
 .order-preview h5{
     font-size: 24px;
+     color: #ffa43c;
 }
 
 .order-preview p{
     font-size: 16px;
+    color: rgba(255, 255, 255, 0.502);
 }
 
 .menu-size{
-    
-    border: 1px solid white;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.639);
+    /* border: 1px solid rgba(255, 255, 255, 0.317); */
+     background-color: #1f1c1a;
+}
+
+.menu-size h3{
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffa43c;
 }
 
 ul li{
@@ -101,7 +123,9 @@ ul li{
     align-items: center;
 }
 
-  
+ li span{
+    color: rgba(255, 255, 255, 0.831);
+ } 
 
 
 .order-list li{
@@ -129,8 +153,59 @@ ul li{
 
 .total-name{
     font-size: 22px;
+    color: #f9c1ab;
 }
 
 .total-bill{
     font-size: 28px;
+    font-weight: 800;
+}
+
+
+.menu-option-container{
+    margin: 24px 0px;
+    gap: 16px;
+    /* border: 1px solid white; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+
+.menu-option-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* padding: 10px 20px; */
+    /* border: 1px solid rgba(255, 255, 255, 0.516); */
+}
+
+.menu-option-box div span{
+    font-size: 32px;
+    font-weight: 800;
+    color: #f24a0d;
+}
+
+.menu-option{
+    cursor: pointer;
+    background-color: #12100e;
+    border-radius: 12px;
+    padding: 20px 20px;
+    display: flex;
+    border: 1px solid rgba(255, 255, 255, 0.368);
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+   transition: all 0.2s ease-in-out;
+}
+
+.menu-option:hover{
+    transform: scale(1.06);
+}
+.menu-option img{
+    height: 120px;
+}
+
+.pizza-price{
+    font-size: 22px;
+    color: #f9c1ab;
 }
