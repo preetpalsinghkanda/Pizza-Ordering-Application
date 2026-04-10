@@ -16,31 +16,68 @@ function PizzaProvider({ children }) {
 
   const [isCheckBox, setIsCheckBox] = useState(false);
 
+
   const [isPassIcon, setIsPassIcon] = useState(false);
 
   const [isPassConfirmIcon, setIsPassConfirmIcon] = useState(false);
 
   const [activeSlider, setActiveSlider] = useState("size");
 
-  let total;
 
+  const [sides , setSides] = useState([]);
   const [size, setSize] = useState("");
+
+  const[drinks , setDrinks] = useState([]);
+  
   const [crust, setCrust] = useState("");
   const [toppings, setToppings] = useState([]);
   const [price, setPrice] = useState(0);
 
+
+  function handleSides(item){
+    if(sides.includes(item)){
+      setSides(sides.filter((x)=> x !== item))
+
+    }else{
+      setSides([...sides , item])
+    }
+  }
+
+
+
+
+
   useEffect(() => {
  
+      let total = 0;
 
   if (size === "small") total = 8.99;
+
   if (size === "medium") total = 12.99;
   if (size === "large") total = 15.99;
+
   if (size === "extraLarge") total = 18.99;
+  
 
   total += toppings.length * 1;
 
+  total += drinks.length*2
+
+  total += sides.length*3 ;
+
   setPrice(total);
-}, [size, toppings]);
+}, [size, toppings , drinks , sides]);
+
+
+function handleDrinks(item){
+  if(drinks.includes(item)){
+    setDrinks(drinks.filter((x) => x !== item));
+
+  }else{
+    setDrinks([...drinks ,item  ])
+  }
+
+}
 
   function handleNext() {
     if (activeSlider === "size") {
@@ -80,6 +117,8 @@ function PizzaProvider({ children }) {
         isCheckBox,
         setIsCheckBox,
         isPassIcon,
+        drinks,
+        setDrinks,
         setIsPassIcon,
         isPassConfirmIcon,
         setIsPassConfirmIcon,
@@ -90,11 +129,15 @@ function PizzaProvider({ children }) {
         handleNext,
         handleBack,
         crust,
+        sides,
+setSides,
         setCrust,
         toppings,
         setToppings,
         price,
         setPrice,
+        handleDrinks,
+        handleSides,
       }}
     >
       {children}

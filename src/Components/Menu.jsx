@@ -39,15 +39,21 @@ export default function Menu() {
     handleNext,
     handleBack,
     size,
+    drinks,
     price,
     setCrust,
     toppings,
     setToppings,
+    handleDrinks,
+    crust,
+    sides,
+
+    handleSides,
   } = useContext(pizzaApp);
 
   function handleToppings(item) {
     if (toppings.includes(item)) {
-      setToppings(toppings.filter((x) => x != item));
+      setToppings(toppings.filter((x) => x !== item));
     } else {
       setToppings([...toppings, item]);
     }
@@ -205,28 +211,28 @@ export default function Menu() {
                 <h3>Choose Crust</h3>
                 <div className="crust-option-container">
                   <div
-                    className="crust-option"
+                    className={`crust-option ${crust === "thin crust" ? "active" : ""}`}
                     onClick={() => setCrust("thin crust")}
                   >
                     <h6>Thin Crust</h6>
                     <p>Crispy & light</p>
                   </div>
                   <div
-                    className="crust-option"
+                    className={`crust-option ${crust === "classic crust" ? "active" : ""}`}
                     onClick={() => setCrust("classic crust")}
                   >
                     <h6>Classic</h6>
                     <p>Our Signature</p>
                   </div>
                   <div
-                    className="crust-option"
+                    className={`crust-option ${crust === "thick crust" ? "active" : ""}`}
                     onClick={() => setCrust("thick crust")}
                   >
                     <h6>Thick Crust</h6>
                     <p>Soft & Chewy</p>
                   </div>
                   <div
-                    className="crust-option"
+                    className={`crust-option ${crust === "stuffed crust" ? "active" : ""}`}
                     onClick={() => setCrust("stuffed crust")}
                   >
                     <h6>Stuffed</h6>
@@ -239,7 +245,7 @@ export default function Menu() {
                 <h3>Pick Toppings</h3>
                 <div className="topping-box">
                   <div
-                    className="topping"
+                    className={`topping ${toppings.includes("mushrooms") ? "active" : ""}`}
                     onClick={() => handleToppings("mushrooms")}
                   >
                     <div>
@@ -250,58 +256,58 @@ export default function Menu() {
                   </div>
 
                   <div
-                    className="topping"
+                    className={`topping ${toppings.includes("onions") ? "active" : ""}`}
                     onClick={() => handleToppings("onions")}
                   >
                     <div>
                       <img src={onion} alt="" />
                       <span className="topping-name">Onions</span>
                     </div>
-                    <span>+$</span>
+                    <span>+$1.00</span>
                   </div>
 
                   <div
-                    className="topping"
+                    className={`topping ${toppings.includes("bacon") ? "active" : ""}`}
                     onClick={() => handleToppings("bacon")}
                   >
                     <div>
                       <img src={bacon} alt="" />{" "}
                       <span className="topping-name">Bacon</span>
                     </div>
-                    <span>+$</span>
+                    <span>+$1.00</span>
                   </div>
 
                   <div
-                    className="topping"
+                    className={`topping ${toppings.includes("pepperoni") ? "active" : ""}`}
                     onClick={() => handleToppings("pepperoni")}
                   >
                     <div>
                       <img src={pepperoni} alt="" />
                       <span className="topping-name">Pepperoni</span>
                     </div>
-                    <span>+$</span>
+                    <span>+$1.00</span>
                   </div>
 
                   <div
-                    className="topping"
+                    className={`topping ${toppings.includes("sausage") ? "active" : ""}`}
                     onClick={() => handleToppings("sausage")}
                   >
                     <div>
                       <img src={sausage} alt="" />
                       <span className="topping-name">Sausage</span>
                     </div>
-                    <span>+$</span>
+                    <span>+$1.00</span>
                   </div>
 
                   <div
-                    className="topping"
+                    className={`topping ${toppings.includes("chesse") ? "active" : ""}`}
                     onClick={() => handleToppings("chesse")}
                   >
                     <div>
                       <img src={chesse} alt="" />
                       <span className="topping-name">Chesse</span>
                     </div>
-                    <span>+$</span>
+                    <span>+$1.00</span>
                   </div>
                 </div>
                 <hr className="order-preview-hr" />
@@ -326,31 +332,40 @@ export default function Menu() {
               <div>
                 <h3>Add Sides</h3>
                 <div className="crust-option-container">
-                  <div className="crust-option drink-option">
-                    <div>
-                      <h6>Garlic Bread</h6>
-                      <p>Crispy & light</p>
+
+                  <div className={`crust-option drink-option ${sides.includes("garlic") ? "active" : ""}`} onClick={()=>handleSides("garlic")}>
+                    <div className="drink-option-box">
+                      <div><h6>Garlic Bread</h6>
+                      <p>Crispy & light</p></div>
+                      <p>$3.00</p>
                     </div>
                     <img src={garlicbread} alt="" />
                   </div>
-                  <div className="crust-option drink-option">
-                    <div>
+                  <div className={`crust-option drink-option ${sides.includes("sticks")? "active" : ""}`} onClick={()=> handleSides("sticks")}>
+                    <div className="drink-option-box">
+                      <div>
                       <h6>Mozzarella Sticks</h6>
-                      <p>Our Signature</p>
+                      <p>Our Signature</p></div>
+                      <p>$3.00</p>
                     </div>
                     <img src={sticks} alt="" />
                   </div>
-                  <div className="crust-option drink-option">
-                    <div>
+                  <div className={`crust-option drink-option ${sides.includes("chicken") ? "active" : ""} `} onClick={()=> handleSides("chicken")}>
+                    <div className="drink-option-box">
+                      <div>
                       <h6>Chicken Wings(6ps)</h6>
-                      <p>Soft & Chewy</p>
+                      <p>Soft & Chewy</p></div>
+                      <p>$3.00</p>
                     </div>
                     <img src={chicken} alt="" />
                   </div>
-                  <div className="crust-option drink-option">
-                    <div>
-                      <h6>Onion Rings</h6>
+                  <div className={`crust-option drink-option ${sides.includes("rings")? "active" : ""}`} onClick={()=>handleSides("rings")}>
+                     <div className="drink-option-box">
+                      <div>
+                        <h6>Onion Rings</h6>
                       <p>Cheese-filled</p>
+                      </div>
+                      <p>$3.00</p>
                     </div>
                     <img src={onion} alt="" />
                   </div>
@@ -360,28 +375,29 @@ export default function Menu() {
               <div className="topping-container">
                 <h3>Add Drinks</h3>
                 <div className="drink-box">
-                  <div className="topping">
+
+                  <div className={`topping ${drinks.includes("coke") ? "active" : ""}`} onClick={()=> handleDrinks("coke")}>
                     <div>
                       <img src={cocacola} alt="" />
                       <span className="topping-name">Cocacola</span>
                     </div>
-                    <span>+$1.00</span>
+                    <span>+$2.00</span>
                   </div>
 
-                  <div className="topping">
+                  <div className={`topping ${drinks.includes("water")? "active": ''}`} onClick={()=> handleDrinks("water")}>
                     <div>
                       <img src={water} alt="" />
                       <span className="topping-name">Water</span>
                     </div>
-                    <span>+$</span>
+                    <span>+$2.00</span>
                   </div>
 
-                  <div className="topping">
+                  <div className={`topping ${drinks.includes("juice") ? "active" : ""}`} onClick={()=> handleDrinks("juice")}>
                     <div>
                       <img src={orange} alt="" />
                       <span className="topping-name">Orange Juice</span>
                     </div>
-                    <span>+$</span>
+                    <span>+$2.00</span>
                   </div>
                 </div>
                 <hr className="order-preview-hr" />
@@ -399,12 +415,29 @@ export default function Menu() {
                 </div>
               </div>
             </div>
+        
           )}
         </div>
+
+        
 
         <div className="order-preview">
           <h5>Order Preview</h5>
           <ul className="order-list">
+            {size && (
+              <li>
+                <p>Base({size})</p>
+                <span>
+                  {size === "small"
+                    ? 8.99
+                    : size === "medium"
+                      ? 12.99
+                      : size === "large"
+                        ? 15.99
+                        : 18.99}
+                </span>
+              </li>
+            )}
             {toppings.map((item, index) => (
               <li key={index}>
                 <p>{item}</p>
@@ -415,8 +448,22 @@ export default function Menu() {
           </ul>
           <div className="total-box">
             <span className="total-name">Total</span>
-            <span className="total-bill">${price}</span>
+            <span className="total-bill">${price.toFixed(2)}</span>
           </div>
+          <hr className="order-preview-hr" />
+
+    <div className="build-btn">
+      <button className="back-btn" onClick={handleBack}>
+        Back
+      </button>
+
+      <button
+        className="next-btn active-build-btn"
+        onClick={() => alert("Order Placed (u will get in 20 minutes)")}
+      >
+        Buy Now
+      </button>
+    </div>
         </div>
       </div>
     </section>

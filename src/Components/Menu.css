@@ -22,7 +22,8 @@
 
 .menu-heading p{
     color: #a0a0a0;
-    font-size: 16px
+    font-size: 16px;
+    
     /* color: ; */
 }
 
@@ -56,6 +57,10 @@
     display: flex;
 }
 
+.drink-option-box div{
+    display: flex;
+    gap:20px
+}
 .sliders-box span{
     font-size: 16px;
 }
@@ -343,6 +348,7 @@ ul li{
 }
 
 .topping-name{
+   white-space: nowrap;
     color: rgba(255, 255, 255, 0.831);
 }
 
