@@ -117,7 +117,7 @@
 }
 
 .menu-crust{
-    display: none;
+    /* display: none; */
 }
 
 ul li{
@@ -259,6 +259,15 @@ ul li{
     gap: 20px;
     justify-content: space-between;
    transition: all 0.2s ease-in-out;
+}
+
+.menu-option{
+    flex-direction: row;
+}
+
+.active {
+  border: 2px solid #f24a0d;
+  box-shadow: 0 0 10px #f24a0d49;
 }
 
 .crust-option{

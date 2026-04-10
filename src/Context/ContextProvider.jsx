@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import pizzaApp from "./Context";
 
 function PizzaProvider({ children }) {
@@ -22,45 +22,45 @@ function PizzaProvider({ children }) {
 
   const [activeSlider, setActiveSlider] = useState("size");
 
+  let total;
+
   const [size, setSize] = useState("");
   const [crust, setCrust] = useState("");
   const [toppings, setToppings] = useState([]);
   const [price, setPrice] = useState(0);
 
+  useEffect(() => {
+ 
 
+  if (size === "small") total = 8.99;
+  if (size === "medium") total = 12.99;
+  if (size === "large") total = 15.99;
+  if (size === "extraLarge") total = 18.99;
 
+  total += toppings.length * 1;
 
-function handleNext(){
-  if(activeSlider === "size"){
-    setActiveSlider("topping");
-  }else if(activeSlider === "topping"){
-    setActiveSlider("drinks");
-  }else if(activeSlider==="drinks"){
-    setActiveSlider("review");
+  setPrice(total);
+}, [size, toppings]);
+
+  function handleNext() {
+    if (activeSlider === "size") {
+      setActiveSlider("topping");
+    } else if (activeSlider === "topping") {
+      setActiveSlider("drinks");
+    } else if (activeSlider === "drinks") {
+      setActiveSlider("review");
+    }
   }
-}
 
-function handleBack(){
-  if(activeSlider === "review"){
-    setActiveSlider("drinks");
-  }else if(activeSlider==="drinks"){
-    setActiveSlider("topping");
-  }else if(activeSlider === "topping"){
-    setActiveSlider("size");
+  function handleBack() {
+    if (activeSlider === "review") {
+      setActiveSlider("drinks");
+    } else if (activeSlider === "drinks") {
+      setActiveSlider("topping");
+    } else if (activeSlider === "topping") {
+      setActiveSlider("size");
+    }
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
   return (
     <pizzaApp.Provider

@@ -31,9 +31,27 @@ import chicken from "../../public/chicken.png";
 import sticks from "../../public/MozzarellaSticks.png";
 
 export default function Menu() {
-  const { activeSlider, setActiveSlider, setSize, setPrice  ,  handleNext,
-        handleBack,} =
-    useContext(pizzaApp);
+  const {
+    activeSlider,
+    setActiveSlider,
+    setSize,
+    setPrice,
+    handleNext,
+    handleBack,
+    size,
+    price,
+    setCrust,
+    toppings,
+    setToppings,
+  } = useContext(pizzaApp);
+
+  function handleToppings(item) {
+    if (toppings.includes(item)) {
+      setToppings(toppings.filter((x) => x != item));
+    } else {
+      setToppings([...toppings, item]);
+    }
+  }
 
   return (
     <section className="menu-section">
@@ -91,244 +109,315 @@ export default function Menu() {
       </div>
 
       <div className="menu-main">
-        {activeSlider === "size" && <div className="menu-size">
-          <h3>Select Your Size</h3>
-          <div className="menu-option-container">
-            <div className="menu-option" onClick={()=>{setSize("small"); setPrice(8.99);}}>
-              <div className="menu-option-box">
-                <div>
-                  <span>8"</span>
-                  <p>Small</p>
+        <div className="menu-left">
+          {activeSlider === "size" && (
+            <div className="menu-size">
+              <h3>Select Your Size</h3>
+              <div className="menu-option-container">
+                <div
+                  className={`menu-option ${size === "small" ? "active" : ""}`}
+                  onClick={() => {
+                    setSize("small");
+                    setPrice(8.99);
+                  }}
+                >
+                  <div className="menu-option-box">
+                    <div>
+                      <span>8"</span>
+                      <p>Small</p>
+                    </div>
+                    <span className="pizza-price">$8.99</span>
+                  </div>
+                  <img src={pizzaSmall} alt="" />
                 </div>
-                <span className="pizza-price">$8.99</span>
-              </div>
-              <img src={pizzaSmall} alt="" />
-            </div>
 
-            <div className="menu-option" onClick={()=>{setSize("medium"); setPrice(12.99);}}>
-              <div className="menu-option-box">
-                <div>
-                  <span>12"</span>
-                  <p>Medium</p>
+                <div
+                  className={`menu-option ${size === "medium" ? "active" : ""}`}
+                  onClick={() => {
+                    setSize("medium");
+                    setPrice(12.99);
+                  }}
+                >
+                  <div className="menu-option-box">
+                    <div>
+                      <span>12"</span>
+                      <p>Medium</p>
+                    </div>
+                    <span className="pizza-price">$12.99</span>
+                  </div>
+                  <img src={pizzaMedium} alt="" />
                 </div>
-                <span className="pizza-price">$12.99</span>
-              </div>
-              <img src={pizzaMedium} alt="" />
-            </div>
 
-            <div className="menu-option" onClick={()=>{setSize("large"); setPrice(15.99);}}>
-              <div className="menu-option-box">
-                <div>
-                  <span>14"</span>
-                  <p>Large</p>
+                <div
+                  className={`menu-option ${size === "large" ? "active" : ""}`}
+                  onClick={() => {
+                    setSize("large");
+                    setPrice(15.99);
+                  }}
+                >
+                  <div className="menu-option-box">
+                    <div>
+                      <span>14"</span>
+                      <p>Large</p>
+                    </div>
+                    <span className="pizza-price">$15.99</span>
+                  </div>
+                  <img src={pizzaLarge} alt="" />
                 </div>
-                <span className="pizza-price">$15.99</span>
-              </div>
-              <img src={pizzaLarge} alt="" />
-            </div>
 
-            <div className="menu-option" onClick={()=>{setSize("extraLarge"); setPrice(18.99);}}>
-              <div className="menu-option-box">
-                <div>
-                  <span>16"</span>
-                  <p>Extra Large</p>
+                <div
+                  className={`menu-option ${size === "extraLarge" ? "active" : ""}`}
+                  onClick={() => {
+                    setSize("extraLarge");
+                    setPrice(18.99);
+                  }}
+                >
+                  <div className="menu-option-box">
+                    <div>
+                      <span>16"</span>
+                      <p>Extra Large</p>
+                    </div>
+                    <span className="pizza-price">$18.99</span>
+                  </div>
+                  <img src={pizzaExtraLarge} alt="" />
                 </div>
-                <span className="pizza-price">$18.99</span>
               </div>
-              <img src={pizzaExtraLarge} alt="" />
-            </div>
-          </div>
-          <hr className="order-preview-hr" />
+              <hr className="order-preview-hr" />
 
-          <div className="build-btn">
-            <button className="back-btn" onClick={()=>handleBack()}>
-              <FontAwesomeIcon icon={faAngleLeft} />
-              Back
-            </button>
-            <button className="next-btn active-build-btn" onClick={()=>handleNext()}>
-              Next <FontAwesomeIcon icon={faAngleRight} />{" "}
-            </button>
-          </div>
-        </div>}
-
-        {activeSlider === "topping" &&<div className="menu-crust">
-          <div>
-            <h3>Choose Crust</h3>
-            <div className="crust-option-container">
-              <div className="crust-option">
-                <h6>Thin Crust</h6>
-                <p>Crispy & light</p>
-              </div>
-              <div className="crust-option">
-                <h6>Classic</h6>
-                <p>Our Signature</p>
-              </div>
-              <div className="crust-option">
-                <h6>Thick Crust</h6>
-                <p>Soft & Chewy</p>
-              </div>
-              <div className="crust-option">
-                <h6>Stuffed</h6>
-                <p>Cheese-filled</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="topping-container">
-            <h3>Pick Toppings</h3>
-            <div className="topping-box">
-              <div className="topping">
-                <div>
-                  <img src={mushroom} alt="" />
-                  <span className="topping-name">Mushrooms</span>
-                </div>
-                <span>+$1.00</span>
-              </div>
-
-              <div className="topping">
-                <div>
-                  <img src={onion} alt="" />
-                  <span className="topping-name">Onions</span>
-                </div>
-                <span>+$</span>
-              </div>
-
-              <div className="topping">
-                <div>
-                  <img src={bacon} alt="" />{" "}
-                  <span className="topping-name">Bacon</span>
-                </div>
-                <span>+$</span>
-              </div>
-
-              <div className="topping">
-                <div>
-                  <img src={pepperoni} alt="" />
-                  <span className="topping-name">Pepperoni</span>
-                </div>
-                <span>+$</span>
-              </div>
-
-              <div className="topping">
-                <div>
-                  <img src={sausage} alt="" />
-                  <span className="topping-name">Sausage</span>
-                </div>
-                <span>+$</span>
-              </div>
-
-              <div className="topping">
-                <div>
-                  <img src={chesse} alt="" />
-                  <span className="topping-name">Chesse</span>
-                </div>
-                <span>+$</span>
+              <div className="build-btn">
+                <button className="back-btn" onClick={() => handleBack()}>
+                  <FontAwesomeIcon icon={faAngleLeft} />
+                  Back
+                </button>
+                <button
+                  className="next-btn active-build-btn"
+                  onClick={() => handleNext()}
+                >
+                  Next <FontAwesomeIcon icon={faAngleRight} />{" "}
+                </button>
               </div>
             </div>
-            <hr className="order-preview-hr" />
-            <div className="build-btn">
-             <button className="back-btn" onClick={()=>handleBack()}>
-                <FontAwesomeIcon icon={faAngleLeft} />
-                Back
-              </button>
-              <button className="next-btn active-build-btn" onClick={()=>handleNext()}>
-                Next <FontAwesomeIcon icon={faAngleRight} />{" "}
-              </button>
+          )}
+
+          {activeSlider === "topping" && (
+            <div className="menu-crust">
+              <div>
+                <h3>Choose Crust</h3>
+                <div className="crust-option-container">
+                  <div
+                    className="crust-option"
+                    onClick={() => setCrust("thin crust")}
+                  >
+                    <h6>Thin Crust</h6>
+                    <p>Crispy & light</p>
+                  </div>
+                  <div
+                    className="crust-option"
+                    onClick={() => setCrust("classic crust")}
+                  >
+                    <h6>Classic</h6>
+                    <p>Our Signature</p>
+                  </div>
+                  <div
+                    className="crust-option"
+                    onClick={() => setCrust("thick crust")}
+                  >
+                    <h6>Thick Crust</h6>
+                    <p>Soft & Chewy</p>
+                  </div>
+                  <div
+                    className="crust-option"
+                    onClick={() => setCrust("stuffed crust")}
+                  >
+                    <h6>Stuffed</h6>
+                    <p>Cheese-filled</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="topping-container">
+                <h3>Pick Toppings</h3>
+                <div className="topping-box">
+                  <div
+                    className="topping"
+                    onClick={() => handleToppings("mushrooms")}
+                  >
+                    <div>
+                      <img src={mushroom} alt="" />
+                      <span className="topping-name">Mushrooms</span>
+                    </div>
+                    <span>+$1.00</span>
+                  </div>
+
+                  <div
+                    className="topping"
+                    onClick={() => handleToppings("onions")}
+                  >
+                    <div>
+                      <img src={onion} alt="" />
+                      <span className="topping-name">Onions</span>
+                    </div>
+                    <span>+$</span>
+                  </div>
+
+                  <div
+                    className="topping"
+                    onClick={() => handleToppings("bacon")}
+                  >
+                    <div>
+                      <img src={bacon} alt="" />{" "}
+                      <span className="topping-name">Bacon</span>
+                    </div>
+                    <span>+$</span>
+                  </div>
+
+                  <div
+                    className="topping"
+                    onClick={() => handleToppings("pepperoni")}
+                  >
+                    <div>
+                      <img src={pepperoni} alt="" />
+                      <span className="topping-name">Pepperoni</span>
+                    </div>
+                    <span>+$</span>
+                  </div>
+
+                  <div
+                    className="topping"
+                    onClick={() => handleToppings("sausage")}
+                  >
+                    <div>
+                      <img src={sausage} alt="" />
+                      <span className="topping-name">Sausage</span>
+                    </div>
+                    <span>+$</span>
+                  </div>
+
+                  <div
+                    className="topping"
+                    onClick={() => handleToppings("chesse")}
+                  >
+                    <div>
+                      <img src={chesse} alt="" />
+                      <span className="topping-name">Chesse</span>
+                    </div>
+                    <span>+$</span>
+                  </div>
+                </div>
+                <hr className="order-preview-hr" />
+                <div className="build-btn">
+                  <button className="back-btn" onClick={() => handleBack()}>
+                    <FontAwesomeIcon icon={faAngleLeft} />
+                    Back
+                  </button>
+                  <button
+                    className="next-btn active-build-btn"
+                    onClick={() => handleNext()}
+                  >
+                    Next <FontAwesomeIcon icon={faAngleRight} />{" "}
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>}
+          )}
 
-        {activeSlider === "drinks" &&  <div className="menu-drinks">
-          <div>
-            <h3>Add Sides</h3>
-            <div className="crust-option-container">
-              <div className="crust-option drink-option">
-                <div>
-                  <h6>Garlic Bread</h6>
-                  <p>Crispy & light</p>
+          {activeSlider === "drinks" && (
+            <div className="menu-drinks">
+              <div>
+                <h3>Add Sides</h3>
+                <div className="crust-option-container">
+                  <div className="crust-option drink-option">
+                    <div>
+                      <h6>Garlic Bread</h6>
+                      <p>Crispy & light</p>
+                    </div>
+                    <img src={garlicbread} alt="" />
+                  </div>
+                  <div className="crust-option drink-option">
+                    <div>
+                      <h6>Mozzarella Sticks</h6>
+                      <p>Our Signature</p>
+                    </div>
+                    <img src={sticks} alt="" />
+                  </div>
+                  <div className="crust-option drink-option">
+                    <div>
+                      <h6>Chicken Wings(6ps)</h6>
+                      <p>Soft & Chewy</p>
+                    </div>
+                    <img src={chicken} alt="" />
+                  </div>
+                  <div className="crust-option drink-option">
+                    <div>
+                      <h6>Onion Rings</h6>
+                      <p>Cheese-filled</p>
+                    </div>
+                    <img src={onion} alt="" />
+                  </div>
                 </div>
-                <img src={garlicbread} alt="" />
               </div>
-              <div className="crust-option drink-option">
-                <div>
-                  <h6>Mozzarella Sticks</h6>
-                  <p>Our Signature</p>
+
+              <div className="topping-container">
+                <h3>Add Drinks</h3>
+                <div className="drink-box">
+                  <div className="topping">
+                    <div>
+                      <img src={cocacola} alt="" />
+                      <span className="topping-name">Cocacola</span>
+                    </div>
+                    <span>+$1.00</span>
+                  </div>
+
+                  <div className="topping">
+                    <div>
+                      <img src={water} alt="" />
+                      <span className="topping-name">Water</span>
+                    </div>
+                    <span>+$</span>
+                  </div>
+
+                  <div className="topping">
+                    <div>
+                      <img src={orange} alt="" />
+                      <span className="topping-name">Orange Juice</span>
+                    </div>
+                    <span>+$</span>
+                  </div>
                 </div>
-                <img src={sticks} alt="" />
-              </div>
-              <div className="crust-option drink-option">
-                <div>
-                  <h6>Chicken Wings(6ps)</h6>
-                  <p>Soft & Chewy</p>
+                <hr className="order-preview-hr" />
+                <div className="build-btn">
+                  <button className="back-btn" onClick={() => handleBack()}>
+                    <FontAwesomeIcon icon={faAngleLeft} />
+                    Back
+                  </button>
+                  <button
+                    className="next-btn active-build-btn"
+                    onClick={() => handleNext()}
+                  >
+                    Next <FontAwesomeIcon icon={faAngleRight} />{" "}
+                  </button>
                 </div>
-                <img src={chicken} alt="" />
-              </div>
-              <div className="crust-option drink-option">
-                <div>
-                  <h6>Onion Rings</h6>
-                  <p>Cheese-filled</p>
-                </div>
-                <img src={onion} alt="" />
               </div>
             </div>
-          </div>
+          )}
+        </div>
 
-          <div className="topping-container">
-            <h3>Add Drinks</h3>
-            <div className="drink-box">
-              <div className="topping">
-                <div>
-                  <img src={cocacola} alt="" />
-                  <span className="topping-name">Cocacola</span>
-                </div>
-                <span>+$1.00</span>
-              </div>
-
-              <div className="topping">
-                <div>
-                  <img src={water} alt="" />
-                  <span className="topping-name">Water</span>
-                </div>
-                <span>+$</span>
-              </div>
-
-              <div className="topping">
-                <div>
-                  <img src={orange} alt="" />
-                  <span className="topping-name">Orange Juice</span>
-                </div>
-                <span>+$</span>
-              </div>
-            </div>
-            <hr className="order-preview-hr" />
-            <div className="build-btn">
-              <button className="back-btn">
-                <FontAwesomeIcon icon={faAngleLeft} />
-                Back
-              </button>
-              <button className="next-btn active-build-btn">
-                Next <FontAwesomeIcon icon={faAngleRight} />{" "}
-              </button>
-            </div>
-          </div>
-        </div>}
-
-        { activeSlider === "review" && <div className="order-preview">
+        <div className="order-preview">
           <h5>Order Preview</h5>
           <ul className="order-list">
-            <li>
-              <p>Base (Small)</p>
-              <span>$8.99</span>
-            </li>
+            {toppings.map((item, index) => (
+              <li key={index}>
+                <p>{item}</p>
+                <span>+$1</span>
+              </li>
+            ))}
             <hr className="order-preview-hr" />
           </ul>
           <div className="total-box">
             <span className="total-name">Total</span>
-            <span className="total-bill">$12.99</span>
+            <span className="total-bill">${price}</span>
           </div>
-        </div>}
-
-
+        </div>
       </div>
     </section>
   );
