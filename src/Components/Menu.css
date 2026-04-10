@@ -285,6 +285,31 @@ ul li{
     grid-template-rows: repeat(2,1fr);
 }
 
+.drink-box{
+    margin: 20px 0px;
+    /* border: 1px solid white; */
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+
+.drink-option{
+    display: flex ;
+    flex-direction: row;
+    justify-content: space-between !important;
+}
+
+.drink-option div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.drink-option img{
+    height: 60px;
+    width: 60px;
+}
+
 .topping{
     border: 1px solid rgba(255, 255, 255, 0.356);
     display: flex;

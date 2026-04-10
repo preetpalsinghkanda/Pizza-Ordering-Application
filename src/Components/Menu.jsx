@@ -15,9 +15,9 @@ import pizzaMedium from "../../public/eightslicepizza.png";
 import pizzaLarge from "../../public/tenslicepizza.png";
 import pizzaExtraLarge from "../../public/twelveslicepizza.png";
 
-import cocacola from '../../public/cocacola.png';
-import water from '../../public/waterglass.png';
-import orange from '../../public/orangejuice.png';
+import cocacola from "../../public/cocacola.png";
+import water from "../../public/waterglass.png";
+import orange from "../../public/orangejuice.png";
 
 import mushroom from "../../public/musroom.png";
 import onion from "../../public/onion.png";
@@ -26,8 +26,15 @@ import sausage from "../../public/Sausage.png";
 import bacon from "../../public/Bacon.png";
 import chesse from "../../public/chesse.png";
 
+import garlicbread from "../../public/garlicBread.png";
+import chicken from "../../public/chicken.png";
+import sticks from "../../public/MozzarellaSticks.png";
+
 export default function Menu() {
-  const { activeSlider } = useContext(pizzaApp);
+  const { activeSlider, setActiveSlider, setSize, setPrice  ,  handleNext,
+        handleBack,} =
+    useContext(pizzaApp);
+
   return (
     <section className="menu-section">
       <div className="menu-heading">
@@ -74,7 +81,7 @@ export default function Menu() {
         </span>
 
         <div
-          className={`sliders-box ${activeSlider === "review " ? "slider-box-active" : ""}`}
+          className={`sliders-box ${activeSlider === "review" ? "slider-box-active" : ""}`}
         >
           <div className="number-icon-box">
             <FontAwesomeIcon icon={fa4} className="number-icon" />
@@ -84,10 +91,10 @@ export default function Menu() {
       </div>
 
       <div className="menu-main">
-        {/* <div className="menu-size">
+        {activeSlider === "size" && <div className="menu-size">
           <h3>Select Your Size</h3>
           <div className="menu-option-container">
-            <div className="menu-option">
+            <div className="menu-option" onClick={()=>{setSize("small"); setPrice(8.99);}}>
               <div className="menu-option-box">
                 <div>
                   <span>8"</span>
@@ -98,7 +105,7 @@ export default function Menu() {
               <img src={pizzaSmall} alt="" />
             </div>
 
-            <div className="menu-option">
+            <div className="menu-option" onClick={()=>{setSize("medium"); setPrice(12.99);}}>
               <div className="menu-option-box">
                 <div>
                   <span>12"</span>
@@ -109,7 +116,7 @@ export default function Menu() {
               <img src={pizzaMedium} alt="" />
             </div>
 
-            <div className="menu-option">
+            <div className="menu-option" onClick={()=>{setSize("large"); setPrice(15.99);}}>
               <div className="menu-option-box">
                 <div>
                   <span>14"</span>
@@ -120,7 +127,7 @@ export default function Menu() {
               <img src={pizzaLarge} alt="" />
             </div>
 
-            <div className="menu-option">
+            <div className="menu-option" onClick={()=>{setSize("extraLarge"); setPrice(18.99);}}>
               <div className="menu-option-box">
                 <div>
                   <span>16"</span>
@@ -134,15 +141,17 @@ export default function Menu() {
           <hr className="order-preview-hr" />
 
           <div className="build-btn">
-            <button className="back-btn">
+            <button className="back-btn" onClick={()=>handleBack()}>
               <FontAwesomeIcon icon={faAngleLeft} />
               Back
             </button>
-            <button className="next-btn active-build-btn">Next <FontAwesomeIcon icon={faAngleRight} /> </button>
+            <button className="next-btn active-build-btn" onClick={()=>handleNext()}>
+              Next <FontAwesomeIcon icon={faAngleRight} />{" "}
+            </button>
           </div>
-        </div> */}
+        </div>}
 
-        <div className="menu-crust">
+        {activeSlider === "topping" &&<div className="menu-crust">
           <div>
             <h3>Choose Crust</h3>
             <div className="crust-option-container">
@@ -165,13 +174,9 @@ export default function Menu() {
             </div>
           </div>
 
-          
-
           <div className="topping-container">
             <h3>Pick Toppings</h3>
             <div className="topping-box">
-
-
               <div className="topping">
                 <div>
                   <img src={mushroom} alt="" />
@@ -181,80 +186,96 @@ export default function Menu() {
               </div>
 
               <div className="topping">
-                <div><img src={onion} alt="" />
-                <span className="topping-name">Onions</span></div>
+                <div>
+                  <img src={onion} alt="" />
+                  <span className="topping-name">Onions</span>
+                </div>
                 <span>+$</span>
               </div>
 
               <div className="topping">
                 <div>
-                <img src={bacon} alt="" /> <span className="topping-name">Bacon</span></div>
-                <span>+$</span>
-              </div>
-
-              <div className="topping">
-                <div><img src={pepperoni} alt="" />
-                <span className="topping-name">Pepperoni</span></div>
+                  <img src={bacon} alt="" />{" "}
+                  <span className="topping-name">Bacon</span>
+                </div>
                 <span>+$</span>
               </div>
 
               <div className="topping">
                 <div>
-                <img src={sausage} alt="" />
-                <span className="topping-name">Sausage</span></div>
+                  <img src={pepperoni} alt="" />
+                  <span className="topping-name">Pepperoni</span>
+                </div>
                 <span>+$</span>
               </div>
 
+              <div className="topping">
+                <div>
+                  <img src={sausage} alt="" />
+                  <span className="topping-name">Sausage</span>
+                </div>
+                <span>+$</span>
+              </div>
 
               <div className="topping">
                 <div>
-                <img src={chesse} alt="" />
-                <span className="topping-name">Chesse</span></div>
+                  <img src={chesse} alt="" />
+                  <span className="topping-name">Chesse</span>
+                </div>
                 <span>+$</span>
               </div>
             </div>
             <hr className="order-preview-hr" />
-             <div className="build-btn">
-            <button className="back-btn">
-              <FontAwesomeIcon icon={faAngleLeft} />
-              Back
-            </button>
-            <button className="next-btn active-build-btn">Next <FontAwesomeIcon icon={faAngleRight} /> </button>
+            <div className="build-btn">
+             <button className="back-btn" onClick={()=>handleBack()}>
+                <FontAwesomeIcon icon={faAngleLeft} />
+                Back
+              </button>
+              <button className="next-btn active-build-btn" onClick={()=>handleNext()}>
+                Next <FontAwesomeIcon icon={faAngleRight} />{" "}
+              </button>
+            </div>
           </div>
-            
-          </div>
-        </div>
+        </div>}
 
-          <div className="menu-drinks">
+        {activeSlider === "drinks" &&  <div className="menu-drinks">
           <div>
             <h3>Add Sides</h3>
             <div className="crust-option-container">
-              <div className="crust-option">
-                <h6>Thin Crust</h6>
-                <p>Crispy & light</p>
+              <div className="crust-option drink-option">
+                <div>
+                  <h6>Garlic Bread</h6>
+                  <p>Crispy & light</p>
+                </div>
+                <img src={garlicbread} alt="" />
               </div>
-              <div className="crust-option">
-                <h6>Classic</h6>
-                <p>Our Signature</p>
+              <div className="crust-option drink-option">
+                <div>
+                  <h6>Mozzarella Sticks</h6>
+                  <p>Our Signature</p>
+                </div>
+                <img src={sticks} alt="" />
               </div>
-              <div className="crust-option">
-                <h6>Thick Crust</h6>
-                <p>Soft & Chewy</p>
+              <div className="crust-option drink-option">
+                <div>
+                  <h6>Chicken Wings(6ps)</h6>
+                  <p>Soft & Chewy</p>
+                </div>
+                <img src={chicken} alt="" />
               </div>
-              <div className="crust-option">
-                <h6>Stuffed</h6>
-                <p>Cheese-filled</p>
+              <div className="crust-option drink-option">
+                <div>
+                  <h6>Onion Rings</h6>
+                  <p>Cheese-filled</p>
+                </div>
+                <img src={onion} alt="" />
               </div>
             </div>
           </div>
 
-          
-
           <div className="topping-container">
             <h3>Add Drinks</h3>
-            <div className="topping-box">
-
-
+            <div className="drink-box">
               <div className="topping">
                 <div>
                   <img src={cocacola} alt="" />
@@ -264,34 +285,35 @@ export default function Menu() {
               </div>
 
               <div className="topping">
-                <div><img src={water} alt="" />
-                <span className="topping-name">Water</span></div>
+                <div>
+                  <img src={water} alt="" />
+                  <span className="topping-name">Water</span>
+                </div>
                 <span>+$</span>
               </div>
-
 
               <div className="topping">
                 <div>
-                <img src={orange} alt="" />
-                <span className="topping-name">Orange Juice</span></div>
+                  <img src={orange} alt="" />
+                  <span className="topping-name">Orange Juice</span>
+                </div>
                 <span>+$</span>
               </div>
-
             </div>
             <hr className="order-preview-hr" />
-             <div className="build-btn">
-            <button className="back-btn">
-              <FontAwesomeIcon icon={faAngleLeft} />
-              Back
-            </button>
-            <button className="next-btn active-build-btn">Next <FontAwesomeIcon icon={faAngleRight} /> </button>
+            <div className="build-btn">
+              <button className="back-btn">
+                <FontAwesomeIcon icon={faAngleLeft} />
+                Back
+              </button>
+              <button className="next-btn active-build-btn">
+                Next <FontAwesomeIcon icon={faAngleRight} />{" "}
+              </button>
+            </div>
           </div>
-            
-          </div>
-        </div>
+        </div>}
 
-
-        <div className="order-preview">
+        { activeSlider === "review" && <div className="order-preview">
           <h5>Order Preview</h5>
           <ul className="order-list">
             <li>
@@ -304,7 +326,9 @@ export default function Menu() {
             <span className="total-name">Total</span>
             <span className="total-bill">$12.99</span>
           </div>
-        </div>
+        </div>}
+
+
       </div>
     </section>
   );

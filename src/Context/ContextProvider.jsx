@@ -14,13 +14,53 @@ function PizzaProvider({ children }) {
 
   const [gender, setGender] = useState("");
 
-  const[isCheckBox , setIsCheckBox] = useState(false); 
+  const [isCheckBox, setIsCheckBox] = useState(false);
 
-  const[isPassIcon , setIsPassIcon ] = useState(false);
+  const [isPassIcon, setIsPassIcon] = useState(false);
 
-  const[isPassConfirmIcon , setIsPassConfirmIcon] = useState(false);
+  const [isPassConfirmIcon, setIsPassConfirmIcon] = useState(false);
 
-  const[activeSlider , setActiveSlider] = useState("size")
+  const [activeSlider, setActiveSlider] = useState("size");
+
+  const [size, setSize] = useState("");
+  const [crust, setCrust] = useState("");
+  const [toppings, setToppings] = useState([]);
+  const [price, setPrice] = useState(0);
+
+
+
+
+function handleNext(){
+  if(activeSlider === "size"){
+    setActiveSlider("topping");
+  }else if(activeSlider === "topping"){
+    setActiveSlider("drinks");
+  }else if(activeSlider==="drinks"){
+    setActiveSlider("review");
+  }
+}
+
+function handleBack(){
+  if(activeSlider === "review"){
+    setActiveSlider("drinks");
+  }else if(activeSlider==="drinks"){
+    setActiveSlider("topping");
+  }else if(activeSlider === "topping"){
+    setActiveSlider("size");
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <pizzaApp.Provider
@@ -45,9 +85,16 @@ function PizzaProvider({ children }) {
         setIsPassConfirmIcon,
         activeSlider,
         setActiveSlider,
-
-
-
+        size,
+        setSize,
+        handleNext,
+        handleBack,
+        crust,
+        setCrust,
+        toppings,
+        setToppings,
+        price,
+        setPrice,
       }}
     >
       {children}
