@@ -2,11 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import pizzaApp from "./Context";
 
 function PizzaProvider({ children }) {
-
-
-  
-const[errors , setErrors] = useState({});
-
+  const [errors, setErrors] = useState({});
 
   const [userName, setUserName] = useState("");
 
@@ -22,118 +18,99 @@ const[errors , setErrors] = useState({});
 
   const [isCheckBox, setIsCheckBox] = useState(false);
 
-
   const [isPassIcon, setIsPassIcon] = useState(false);
 
   const [isPassConfirmIcon, setIsPassConfirmIcon] = useState(false);
 
   const [activeSlider, setActiveSlider] = useState("size");
-  
 
-
-  const [sides , setSides] = useState([]);
+  const [sides, setSides] = useState([]);
   const [size, setSize] = useState("");
 
-  const[drinks , setDrinks] = useState([]);
-  
+  const [drinks, setDrinks] = useState([]);
+
   const [crust, setCrust] = useState("");
   const [toppings, setToppings] = useState([]);
   const [price, setPrice] = useState(0);
 
-
-  function handleSides(item){
-    if(sides.includes(item)){
-      setSides(sides.filter((x)=> x !== item))
-
-    }else{
-      setSides([...sides , item])
+  function handleSides(item) {
+    if (sides.includes(item)) {
+      setSides(sides.filter((x) => x !== item));
+    } else {
+      setSides([...sides, item]);
     }
   }
 
-
-  function validateForm(){
-
-    let newErr  = {}
+  function validateForm() {
+    let newErr = {};
 
     let isValid = true;
 
-    if(!userName.trim()){
+    if (!userName.trim()) {
       newErr.userName = "Full name is required";
-      isValid = false ;
+      isValid = false;
     }
 
-    if(!email.includes("@")){
+    if (!email.includes("@")) {
       newErr.email = "Vaild email required";
       isValid = false;
     }
 
     if (phoneNo.length < 10) {
-    newErr.phone = "Invalid phone number";
-    isValid = false; 
+      newErr.phone = "Invalid phone number";
+      isValid = false;
+    }
+
+    if (pass.length < 6) {
+      newErr.pass = "Password must be at least 6 characters";
+      isValid = false;
+    }
+
+    if (!gender) {
+      newErr.gender = "Select gender";
+      isValid = false;
+    }
+
+    if (pass !== passConfirm) {
+      newErr.passConfirm = "Passwords do not match";
+      isValid = false;
+    }
+
+    if (!isCheckBox) {
+      newErr.terms = "Accept terms first";
+      isValid = false;
+    }
+
+    setErrors(newErr);
+    return isValid;
   }
-
-  if (pass.length < 6) {
-    newErr.pass = "Password must be at least 6 characters";
-    isValid = false;
-  }
-
-  if (!gender) {
-  newErr.gender = "Select gender";
-  isValid = false;
-}
-
-
-
-
-  if (pass !== passConfirm) {
-    newErr.passConfirm = "Passwords do not match";
-    isValid = false;
-  }
-
-
-  if (!isCheckBox) {
-    newErr.terms = "Accept terms first";
-    isValid = false;
-  }
-
-  setErrors(newErr);
-return isValid ; 
-  }
-
-
-
 
   useEffect(() => {
- 
-      let total = 0;
+    let total = 0;
 
-  if (size === "small") total = 8.99;
+    if (size === "small") total = 8.99;
 
-  if (size === "medium") total = 12.99;
-  if (size === "large") total = 15.99;
+    if (size === "medium") total = 12.99;
+    if (size === "large") total = 15.99;
 
-  if (size === "extraLarge") total = 18.99;
-  
+    if (size === "extraLarge") total = 18.99;
 
-  total += toppings.length * 1;
+    total += toppings.length * 1;
 
-  total += drinks.length*2
+    total += drinks.length * 2;
 
-  total += sides.length*3 ;
+    total += sides.length * 3;
 
-  setPrice(total);
-}, [size, toppings , drinks , sides]);
+    setPrice(total);
+  }, [size, toppings, drinks, sides]);
 
-
-function handleDrinks(item){
-  if(drinks.includes(item)){
-    setDrinks(drinks.filter((x) => x !== item));
-
-  }else{
-    setDrinks([...drinks ,item  ])
+  function handleDrinks(item) {
+    if (drinks.includes(item)) {
+      setDrinks(drinks.filter((x) => x !== item));
+    } else {
+      setDrinks([...drinks, item]);
+    }
   }
-
-}
 
   function handleNext() {
     if (activeSlider === "size") {
@@ -171,6 +148,7 @@ function handleDrinks(item){
         gender,
         setGender,
         errors,
+
         setErrors,
         isCheckBox,
         setIsCheckBox,
@@ -189,7 +167,7 @@ function handleDrinks(item){
         handleBack,
         crust,
         sides,
-setSides,
+        setSides,
         setCrust,
         toppings,
         setToppings,

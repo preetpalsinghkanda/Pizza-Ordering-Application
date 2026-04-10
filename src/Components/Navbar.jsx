@@ -21,9 +21,7 @@ function Navbar({setPage}) {
          <button className="icon-btn " onClick={()=>setPage("menu")}>
           <FontAwesomeIcon icon={faBookOpen} />
         </button>
-        {/* <button className="icon-btn">
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </button> */}
+        
        
         <button className="login-btn" onClick={()=>setPage("signup")}>
           <FontAwesomeIcon icon={faUser} />

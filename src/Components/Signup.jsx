@@ -35,6 +35,7 @@ export default function Signup() {
     isPassConfirmIcon,
     validateForm ,
     errors,
+    
 
   } = useContext(pizzaApp);
   return (
@@ -103,7 +104,7 @@ export default function Signup() {
               <div className="pass-input input-icon-box">
                 <FontAwesomeIcon icon={faLock} />
                 <input
-                  type="password"
+                  type={isPassIcon ? "text" : "password"}
                   id="pass"
                   placeholder="#Preet1234&&"
                   value={pass}
@@ -124,7 +125,7 @@ export default function Signup() {
               <div className="pass-input input-icon-box">
                 <FontAwesomeIcon icon={faLock} />
                 <input
-                  type="password"
+                  type={isPassConfirmIcon ? "text" : "password"}
                   id="pass-confirm"
                   placeholder="#Preet1234&&"
                   value={passConfirm}

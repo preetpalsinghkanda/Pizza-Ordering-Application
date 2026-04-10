@@ -1,5 +1,5 @@
 .hero-container {
-  /* height: 85vh; */
+  
   gap: 120px;
   padding: 140px 0px;
   display: flex;
@@ -8,7 +8,7 @@
   align-items: center;
   background-color: #12100e;
   text-align: center;
-  /* border: 1px solid white; */
+  
 }
 
 
@@ -79,7 +79,6 @@
 
 .why-section{
   margin: 50px 0px;
-  /* border: 1px solid white; */
   padding: 0px 140px;
   display: flex;
   gap: 22px;
@@ -89,7 +88,6 @@
 .why-box{
   background-color: #1a1a1a;
   padding: 35px 20px;
-  /* border: 1px solid white; */
   border-radius: 18px;
   gap: 20px;
   display: flex;
@@ -118,14 +116,12 @@
 }
 
 .ready-order-section{
-  /* border: 1px solid white; */
   padding: 0px 40px;
   
 }
 
 .ready-order-section div{
   padding: 60px 60px;
-  /* border: 1px solid white; */
   border-radius: 20px;
   background-color: #1a1a1a;
 }
