@@ -9,22 +9,23 @@ import {
 import pizzaImg from "../../public/pizza-img.png";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({setPage}) {
+
   return (
     <nav className="navbar">
-      <div className="nav-logo">
+      <div className="nav-logo" onClick={()=>setPage("home")}>
         <FontAwesomeIcon icon={faPizzaSlice} />
         <span className="logo-text">PizzaFlux</span>
       </div>
       <div className="nav-btns">
-         <button className="icon-btn ">
+         <button className="icon-btn " onClick={()=>setPage("menu")}>
           <FontAwesomeIcon icon={faBookOpen} />
         </button>
-        <button className="icon-btn">
+        {/* <button className="icon-btn">
           <FontAwesomeIcon icon={faShoppingCart} />
-        </button>
+        </button> */}
        
-        <button className="login-btn">
+        <button className="login-btn" onClick={()=>setPage("signup")}>
           <FontAwesomeIcon icon={faUser} />
           <span>Sign Up</span>
         </button>

@@ -33,6 +33,9 @@ export default function Signup() {
     setIsPassIcon,
     setIsPassConfirmIcon,
     isPassConfirmIcon,
+    validateForm ,
+    errors,
+
   } = useContext(pizzaApp);
   return (
     <div className="signup-container">
@@ -58,7 +61,7 @@ export default function Signup() {
                 }}
               />
             </div>
-            <p className="error ">Full name is required</p>
+            {errors.userName && <p className="error show">{errors.userName}</p>}
           </div>
 
           <div className="input-box">
@@ -75,7 +78,7 @@ export default function Signup() {
                 }}
               />
             </div>
-            <p className="error">Email is required</p>
+            {errors.email && <p className="error show">{errors.email}</p>}
           </div>
 
           <div className="input-box">
@@ -91,7 +94,7 @@ export default function Signup() {
                 onChange={(x) => setPhoneNo(x.target.value)}
               />
             </div>
-            <p className="error">Invalid phone number</p>
+            {errors.phone && <p className="error show">{errors.phone}</p>}
           </div>
 
           <div className="input-pass-container">
@@ -113,7 +116,7 @@ export default function Signup() {
                   className="eye-icon"
                 />
               </div>
-              <p className="error">Password must be at least 6 characters</p>
+              {errors.pass && <p className="error show">{errors.pass}</p>}
             </div>
 
             <div className="input-box ">
@@ -134,7 +137,9 @@ export default function Signup() {
                   className="eye-icon"
                 />
               </div>
-              <p className="error">Passwords do not match</p>
+              {errors.passConfirm && (
+                <p className="error show">{errors.passConfirm}</p>
+              )}
             </div>
           </div>
 
@@ -160,6 +165,7 @@ export default function Signup() {
                 Other
               </button>
             </div>
+            {errors.gender && <p className="error show">{errors.gender}</p>}
           </div>
 
           <div
@@ -173,9 +179,21 @@ export default function Signup() {
             />
             <p>I accept the terms and conditions</p>
           </div>
+          {errors.terms && <p className="error show">{errors.terms}</p>}
         </div>
 
-        <button className="signup-btn">Sign Up</button>
+        <button
+          className="signup-btn"
+          onClick={() => {
+            if (validateForm()) {
+              alert("Signup Successful")
+            }else{
+              // alert("please type valid input or fill full form")
+            }
+          }}
+        >
+          Sign Up
+        </button>
       </div>
     </div>
   );

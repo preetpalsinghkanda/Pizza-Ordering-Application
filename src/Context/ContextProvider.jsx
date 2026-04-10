@@ -2,6 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import pizzaApp from "./Context";
 
 function PizzaProvider({ children }) {
+
+
+  
+const[errors , setErrors] = useState({});
+
+
   const [userName, setUserName] = useState("");
 
   const [email, setEmail] = useState("");
@@ -22,6 +28,7 @@ function PizzaProvider({ children }) {
   const [isPassConfirmIcon, setIsPassConfirmIcon] = useState(false);
 
   const [activeSlider, setActiveSlider] = useState("size");
+  
 
 
   const [sides , setSides] = useState([]);
@@ -43,6 +50,55 @@ function PizzaProvider({ children }) {
     }
   }
 
+
+  function validateForm(){
+
+    let newErr  = {}
+
+    let isValid = true;
+
+    if(!userName.trim()){
+      newErr.userName = "Full name is required";
+      isValid = false ;
+    }
+
+    if(!email.includes("@")){
+      newErr.email = "Vaild email required";
+      isValid = false;
+    }
+
+    if (phoneNo.length < 10) {
+    newErr.phone = "Invalid phone number";
+    isValid = false; 
+  }
+
+  if (pass.length < 6) {
+    newErr.pass = "Password must be at least 6 characters";
+    isValid = false;
+  }
+
+  if (!gender) {
+  newErr.gender = "Select gender";
+  isValid = false;
+}
+
+
+
+
+  if (pass !== passConfirm) {
+    newErr.passConfirm = "Passwords do not match";
+    isValid = false;
+  }
+
+
+  if (!isCheckBox) {
+    newErr.terms = "Accept terms first";
+    isValid = false;
+  }
+
+  setErrors(newErr);
+return isValid ; 
+  }
 
 
 
@@ -114,11 +170,14 @@ function handleDrinks(item){
         setPassConfirm,
         gender,
         setGender,
+        errors,
+        setErrors,
         isCheckBox,
         setIsCheckBox,
         isPassIcon,
         drinks,
         setDrinks,
+        validateForm,
         setIsPassIcon,
         isPassConfirmIcon,
         setIsPassConfirmIcon,

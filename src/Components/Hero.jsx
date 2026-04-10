@@ -5,7 +5,7 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import pizzaImg from "../../public/pizza-img.png";
 import cook from '../../public/cook.png'
 
-const Hero = () => {
+function Hero({setPage}){
   return (
     <section className="hero-container ">
       <div className="hero-content">
@@ -18,11 +18,11 @@ const Hero = () => {
           toppings & more which is all powered by Redux.
         </p>
         <div className="hero-buttons">
-          <button className="btn-primary">
+          <button className="btn-primary" onClick={()=>{setPage("menu")}}>
             <span>Order Now</span>
             <FontAwesomeIcon icon={faAngleRight} />
           </button>
-          <button className="btn-secondary">Sign Up</button>
+          <button className="btn-secondary" onClick={()=>{setPage("signup")}}>Sign Up</button>
         </div>
       </div>
 
@@ -106,7 +106,7 @@ const Hero = () => {
       <div>
         <h3>Ready to order?</h3>
       <p>Create your account and get your first delivery free!</p>
-      <button>Get Started, It's Free</button></div> 
+      <button onClick={()=>setPage("signup")} >Get Started, It's Free</button></div> 
 
     </section>
 

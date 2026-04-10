@@ -452,6 +452,7 @@ export default function Menu() {
           </div>
           <hr className="order-preview-hr" />
 
+{activeSlider === "review" && (
     <div className="build-btn">
       <button className="back-btn" onClick={handleBack}>
         Back
@@ -463,7 +464,9 @@ export default function Menu() {
       >
         Buy Now
       </button>
-    </div>
+    </div>)}
+
+
         </div>
       </div>
     </section>
