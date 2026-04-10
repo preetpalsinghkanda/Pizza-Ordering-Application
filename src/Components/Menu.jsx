@@ -7,6 +7,7 @@ import {
   fa3,
   fa4,
   faAngleRight,
+  faAngleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import pizzaApp from "../Context/Context";
 import pizzaSmall from "../../public/sixslicepizza.png";
@@ -72,8 +73,7 @@ export default function Menu() {
       </div>
 
       <div className="menu-main">
-        
-        <div className="menu-size">
+        {/* <div className="menu-size">
           <h3>Select Your Size</h3>
           <div className="menu-option-container">
             <div className="menu-option">
@@ -118,6 +118,51 @@ export default function Menu() {
                 <span className="pizza-price">$18.99</span>
               </div>
               <img src={pizzaExtraLarge} alt="" />
+            </div>
+          </div>
+          <hr className="order-preview-hr" />
+
+          <div className="build-btn">
+            <button className="back-btn">
+              <FontAwesomeIcon icon={faAngleLeft} />
+              Back
+            </button>
+            <button className="next-btn active-build-btn">Next <FontAwesomeIcon icon={faAngleRight} /> </button>
+          </div>
+        </div> */}
+
+        <div className="menu-crust">
+          <div>
+            <h3>Choose Crust</h3>
+            <div className="crust-option-container">
+              <div className="crust-option">
+                <h6>Thin Crust</h6>
+                <p>Crispy & light</p>
+              </div>
+              <div className="crust-option">
+                <h6>Classic</h6>
+                <p>Our Signature</p>
+              </div>
+              <div className="crust-option">
+                <h6>Thick Crust</h6>
+                <p>Soft & Chewy</p>
+              </div>
+              <div className="crust-option">
+                <h6>Stuffed</h6>
+                <p>Cheese-filled</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="topping-container">
+            <h3>Pick Toppings</h3>
+            <div className="topping-box">
+              <div><span>Mushrooms</span><span>+$1.00</span></div>
+              <div><span></span></div>
+              <div><span></span></div>
+              <div><span></span></div>
+              <div><span></span></div>
+              <div><span></span></div>
             </div>
           </div>
         </div>

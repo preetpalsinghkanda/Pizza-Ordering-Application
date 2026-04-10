@@ -89,6 +89,7 @@
     display: flex;
    flex-direction: column;
     background-color: #1f1c1a;
+    height: max-content;
 }
 
 .order-preview h5{
@@ -101,7 +102,7 @@
     color: rgba(255, 255, 255, 0.502);
 }
 
-.menu-size{
+.menu-size,.menu-crust{
     border-radius: 12px;
     padding: 24px 28px;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.639);
@@ -109,7 +110,7 @@
      background-color: #1f1c1a;
 }
 
-.menu-size h3{
+.menu-size h3 , .menu-crust h3{
     font-size: 24px;
     font-weight: 500;
     color: #ffa43c;
@@ -162,7 +163,7 @@ ul li{
 }
 
 
-.menu-option-container{
+.menu-option-container , .crust-option-container{
     margin: 24px 0px;
     gap: 16px;
     /* border: 1px solid white; */
@@ -185,7 +186,7 @@ ul li{
     color: #f24a0d;
 }
 
-.menu-option{
+/* {
     cursor: pointer;
     background-color: #12100e;
     border-radius: 12px;
@@ -196,7 +197,7 @@ ul li{
     gap: 20px;
     justify-content: space-between;
    transition: all 0.2s ease-in-out;
-}
+} */
 
 .menu-option:hover{
     transform: scale(1.06);
@@ -208,4 +209,70 @@ ul li{
 .pizza-price{
     font-size: 22px;
     color: #f9c1ab;
+}
+.build-btn{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.back-btn , .next-btn{
+    color: rgba(255, 255, 255, 0.584);
+    background-color: transparent;
+    border-radius: 12px;
+    padding: 6px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.active-build-btn{
+    background-color: #f24a0d;
+    color: white;
+}
+
+/* {
+     margin: 24px 0px;
+    gap: 16px;
+   
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+} */
+
+.crust-option , .menu-option{
+      cursor: pointer;
+    background-color: #12100e;
+    border-radius: 12px;
+    padding: 20px 20px;
+    display: flex;
+    border: 1px solid rgba(255, 255, 255, 0.368);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+   transition: all 0.2s ease-in-out;
+}
+
+.crust-option{
+    min-width: 20vw;
+    justify-content: space-evenly !important;
+    gap: 10px;
+}
+
+.crust-option h6{
+    font-size: 18px;
+}
+
+.crust-option p{
+    font-size: 14px;
+}
+
+.topping-box{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2,1fr);
 }
