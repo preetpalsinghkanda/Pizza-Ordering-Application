@@ -15,6 +15,17 @@ import pizzaMedium from "../../public/eightslicepizza.png";
 import pizzaLarge from "../../public/tenslicepizza.png";
 import pizzaExtraLarge from "../../public/twelveslicepizza.png";
 
+import cocacola from '../../public/cocacola.png';
+import water from '../../public/waterglass.png';
+import orange from '../../public/orangejuice.png';
+
+import mushroom from "../../public/musroom.png";
+import onion from "../../public/onion.png";
+import pepperoni from "../../public/Pepperoni.png";
+import sausage from "../../public/Sausage.png";
+import bacon from "../../public/Bacon.png";
+import chesse from "../../public/chesse.png";
+
 export default function Menu() {
   const { activeSlider } = useContext(pizzaApp);
   return (
@@ -154,18 +165,131 @@ export default function Menu() {
             </div>
           </div>
 
+          
+
           <div className="topping-container">
             <h3>Pick Toppings</h3>
             <div className="topping-box">
-              <div><span>Mushrooms</span><span>+$1.00</span></div>
-              <div><span></span></div>
-              <div><span></span></div>
-              <div><span></span></div>
-              <div><span></span></div>
-              <div><span></span></div>
+
+
+              <div className="topping">
+                <div>
+                  <img src={mushroom} alt="" />
+                  <span className="topping-name">Mushrooms</span>
+                </div>
+                <span>+$1.00</span>
+              </div>
+
+              <div className="topping">
+                <div><img src={onion} alt="" />
+                <span className="topping-name">Onions</span></div>
+                <span>+$</span>
+              </div>
+
+              <div className="topping">
+                <div>
+                <img src={bacon} alt="" /> <span className="topping-name">Bacon</span></div>
+                <span>+$</span>
+              </div>
+
+              <div className="topping">
+                <div><img src={pepperoni} alt="" />
+                <span className="topping-name">Pepperoni</span></div>
+                <span>+$</span>
+              </div>
+
+              <div className="topping">
+                <div>
+                <img src={sausage} alt="" />
+                <span className="topping-name">Sausage</span></div>
+                <span>+$</span>
+              </div>
+
+
+              <div className="topping">
+                <div>
+                <img src={chesse} alt="" />
+                <span className="topping-name">Chesse</span></div>
+                <span>+$</span>
+              </div>
             </div>
+            <hr className="order-preview-hr" />
+             <div className="build-btn">
+            <button className="back-btn">
+              <FontAwesomeIcon icon={faAngleLeft} />
+              Back
+            </button>
+            <button className="next-btn active-build-btn">Next <FontAwesomeIcon icon={faAngleRight} /> </button>
+          </div>
+            
           </div>
         </div>
+
+          <div className="menu-drinks">
+          <div>
+            <h3>Add Sides</h3>
+            <div className="crust-option-container">
+              <div className="crust-option">
+                <h6>Thin Crust</h6>
+                <p>Crispy & light</p>
+              </div>
+              <div className="crust-option">
+                <h6>Classic</h6>
+                <p>Our Signature</p>
+              </div>
+              <div className="crust-option">
+                <h6>Thick Crust</h6>
+                <p>Soft & Chewy</p>
+              </div>
+              <div className="crust-option">
+                <h6>Stuffed</h6>
+                <p>Cheese-filled</p>
+              </div>
+            </div>
+          </div>
+
+          
+
+          <div className="topping-container">
+            <h3>Add Drinks</h3>
+            <div className="topping-box">
+
+
+              <div className="topping">
+                <div>
+                  <img src={cocacola} alt="" />
+                  <span className="topping-name">Cocacola</span>
+                </div>
+                <span>+$1.00</span>
+              </div>
+
+              <div className="topping">
+                <div><img src={water} alt="" />
+                <span className="topping-name">Water</span></div>
+                <span>+$</span>
+              </div>
+
+
+              <div className="topping">
+                <div>
+                <img src={orange} alt="" />
+                <span className="topping-name">Orange Juice</span></div>
+                <span>+$</span>
+              </div>
+
+            </div>
+            <hr className="order-preview-hr" />
+             <div className="build-btn">
+            <button className="back-btn">
+              <FontAwesomeIcon icon={faAngleLeft} />
+              Back
+            </button>
+            <button className="next-btn active-build-btn">Next <FontAwesomeIcon icon={faAngleRight} /> </button>
+          </div>
+            
+          </div>
+        </div>
+
 
         <div className="order-preview">
           <h5>Order Preview</h5>

@@ -1,6 +1,6 @@
 .menu-section{
     /* border: 1px solid white; */
-    height: 100vh;
+    /* height: 100vh; */
     padding: 40px 180px;
     display: flex;
     flex-direction:column;
@@ -110,10 +110,14 @@
      background-color: #1f1c1a;
 }
 
-.menu-size h3 , .menu-crust h3{
+.menu-size h3 , .menu-crust h3 , .menu-drinks h3{
     font-size: 24px;
     font-weight: 500;
     color: #ffa43c;
+}
+
+.menu-crust{
+    display: none;
 }
 
 ul li{
@@ -258,7 +262,7 @@ ul li{
 }
 
 .crust-option{
-    min-width: 20vw;
+    /* min-width: 20vw; */
     justify-content: space-evenly !important;
     gap: 10px;
 }
@@ -269,10 +273,54 @@ ul li{
 
 .crust-option p{
     font-size: 14px;
+    color: rgba(255, 255, 255, 0.571);
 }
 
 .topping-box{
+    margin: 20px 0px;
+    /* border: 1px solid white; */
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2,1fr);
+}
+
+.topping{
+    border: 1px solid rgba(255, 255, 255, 0.356);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 14px 10px;
+    border-radius: 12px;
+    transition: all 0.2s ease-out;
+}
+
+
+.topping img{
+    height: 30px;
+}
+
+.topping div{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+}
+
+.topping-name{
+    color: rgba(255, 255, 255, 0.831);
+}
+
+.topping:hover{
+    cursor: pointer;
+    outline: 2px solid #f24a0d;
+}
+
+.menu-drinks{
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.639);
+    /* border: 1px solid rgba(255, 255, 255, 0.317); */
+     background-color: #1f1c1a;
 }
